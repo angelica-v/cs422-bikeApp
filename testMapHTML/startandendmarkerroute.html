@@ -1,0 +1,122 @@
+<html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Plain Route No Warnings</title>
+  <style>
+    html, body, #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
+  <script src="https://js.arcgis.com/4.25/"></script>
+  <script>
+
+  require([
+    "esri/config",
+    "esri/Map",
+    "esri/views/MapView",
+
+    "esri/Graphic",
+    "esri/layers/GraphicsLayer"
+
+    ], function(esriConfig,Map, MapView, Graphic, GraphicsLayer) {
+
+    esriConfig.apiKey = "AAPKfdb3c15acab54e618af76ac473818e9f0Z9UJw4IZVjC773pinKQMZZ1SxImHplIPzCTLV43lHhVyC_Wt8IE6wMYF4fbf3hQ";
+
+  const map = new Map({
+    basemap: "arcgis-topographic" //Basemap layer service
+  });
+
+  const view = new MapView({
+    map: map,
+    
+    center: [-87.6518158391,   41.8794389483], //Longitude, latitude
+    zoom: 15,
+    container: "viewDiv"
+ });
+
+ const graphicsLayer = new GraphicsLayer();
+ map.add(graphicsLayer);
+
+ const point = { //Create a point
+    type: "point",
+    longitude:-87.65294424326311,
+    latitude: 41.887746923199664
+ };
+ const simpleMarkerSymbol = {
+    type: "simple-marker",
+    color: [124, 198, 254],  // Light Blue
+    outline: {
+        color: [8, 40, 80], // Medium/Dark Blue
+        width: 1
+    }
+ };
+
+ const endpointGraphic = new Graphic({
+    geometry: point,
+    symbol: simpleMarkerSymbol
+ });
+
+ // creat end point
+ const endpoint = { //Create a point
+    type: "point",
+    longitude:-87.65068743495554,
+    latitude: 41.871130973446654
+ };
+ const endsimpleMarkerSymbol = {
+    type: "picture-marker",
+    url: 'img/mapMarker.png',
+    width: "30px",
+    height: "30px"/*
+    color: [124, 198, 254],  // Light Blue
+    outline: {
+        color: [8, 40, 80], // Medium/Dark Blue
+        width: 1
+    }*/
+ };
+
+ const pointGraphic = new Graphic({
+    geometry: endpoint,
+    symbol: endsimpleMarkerSymbol
+ });
+
+    // Create a line geometry
+ const polyline = {
+    type: "polyline",
+    paths: [
+        [-87.65294424326311,   41.887746923199664],//Longitude, latitude
+        [-87.652216652475,   41.887746923199664],
+        [-87.65175596451553,   41.873087630110234],
+        [-87.65130065572471, 41.87282931767559],
+        [-87.65123649350986, 41.87114163010549],
+        [-87.65068743495554, 41.871130973446654]
+    ]
+ };
+ const simpleLineSymbol = {
+    type: "simple-line",
+    color: [9, 77, 146], // Orange
+    width: 2
+ };
+
+ const polylineGraphic = new Graphic({
+    geometry: polyline,
+    symbol: simpleLineSymbol
+ });
+ graphicsLayer.add(polylineGraphic);
+ graphicsLayer.add(pointGraphic);
+ graphicsLayer.add(endpointGraphic);
+
+
+ });
+</script>
+</head>
+<body>
+  <div id="viewDiv"></div>
+</body>
+</html>
+

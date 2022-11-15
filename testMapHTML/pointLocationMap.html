@@ -1,0 +1,72 @@
+<html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Point at User </title>
+  <style>
+    html, body, #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
+  <script src="https://js.arcgis.com/4.25/"></script>
+  <script>
+
+  require([
+    "esri/config",
+    "esri/Map",
+    "esri/views/MapView",
+
+    "esri/Graphic",
+    "esri/layers/GraphicsLayer"
+
+    ], function(esriConfig,Map, MapView, Graphic, GraphicsLayer) {
+
+  esriConfig.apiKey = "AAPKfdb3c15acab54e618af76ac473818e9f0Z9UJw4IZVjC773pinKQMZZ1SxImHplIPzCTLV43lHhVyC_Wt8IE6wMYF4fbf3hQ";
+
+  const map = new Map({
+    basemap: "arcgis-topographic" //Basemap layer service
+  });
+
+  const view = new MapView({
+    map: map,
+    center: [-87.65294424326311,   41.887746923199664], //Longitude, latitude
+    zoom: 18,
+    container: "viewDiv"
+ });
+
+ const graphicsLayer = new GraphicsLayer();
+ map.add(graphicsLayer);
+
+ const point = { //Create a point
+    type: "point",
+    longitude:-87.65294424326311,
+    latitude: 41.887746923199664
+    
+ };
+ const simpleMarkerSymbol = {
+    type: "simple-marker",
+    color: [124, 198, 254],  // Light Blue
+    outline: {
+        color: [8, 40, 80], // Medium/Dark Blue
+        width: 1
+    }
+ };
+
+ const pointGraphic = new Graphic({
+    geometry: point,
+    symbol: simpleMarkerSymbol
+ });
+ graphicsLayer.add(pointGraphic);
+
+ });
+</script>
+</head>
+<body>
+  <div id="viewDiv"></div>
+</body>
+</html>

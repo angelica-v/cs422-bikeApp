@@ -1,0 +1,53 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Plain Map</title>
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.24/esri/themes/light/main.css">
+  <script src="https://js.arcgis.com/4.24/"></script>
+
+  <script>
+    require([
+     "esri/config",
+      "esri/Map",
+      "esri/views/MapView"
+    ],(esriConfig, Map, MapView)=> {
+
+      esriConfig.apiKey= "AAPKfdb3c15acab54e618af76ac473818e9f0Z9UJw4IZVjC773pinKQMZZ1SxImHplIPzCTLV43lHhVyC_Wt8IE6wMYF4fbf3hQ";
+      const map = new Map({
+        basemap: "arcgis-topographic" // Basemap layer
+      });
+
+      const view = new MapView({
+        map: map,
+        center: [-87.65076909438382, 41.87092458337605],
+        zoom: 18, // scale: 72223.819286
+        container: "viewDiv",
+        constraints: {
+          snapToZoom: false
+        }
+      });
+
+      
+
+    });
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>

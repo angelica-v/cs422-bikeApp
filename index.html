@@ -1,0 +1,94 @@
+<html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Bike App - Home</title>
+
+  <!-- Style Sheets-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
+
+  <!--Scripts-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <script src="https://js.arcgis.com/4.25/"></script>
+  <script>
+
+  require([
+    "esri/config",
+    "esri/Map",
+    "esri/views/MapView",
+
+    "esri/Graphic",
+    "esri/layers/GraphicsLayer"
+
+    ], function(esriConfig,Map, MapView, Graphic, GraphicsLayer) {
+
+  esriConfig.apiKey = "AAPKfdb3c15acab54e618af76ac473818e9f0Z9UJw4IZVjC773pinKQMZZ1SxImHplIPzCTLV43lHhVyC_Wt8IE6wMYF4fbf3hQ";
+
+  const map = new Map({
+    basemap: "arcgis-topographic" //Basemap layer service
+  });
+
+  const view = new MapView({
+    map: map,
+    center: [-87.65294424326311,   41.887746923199664], //Longitude, latitude
+    zoom: 18,
+    container: "viewDiv"
+ });
+
+ const graphicsLayer = new GraphicsLayer();
+ map.add(graphicsLayer);
+
+ const point = { //Create a point
+    type: "point",
+    longitude:-87.65294424326311,
+    latitude: 41.887746923199664
+    
+ };
+ const simpleMarkerSymbol = {
+    type: "simple-marker",
+    color: [124, 198, 254],  // Light Blue
+    outline: {
+        color: [8, 40, 80], // Medium/Dark Blue
+        width: 1
+    }
+ };
+
+ const pointGraphic = new Graphic({
+    geometry: point,
+    symbol: simpleMarkerSymbol
+ });
+ graphicsLayer.add(pointGraphic);
+
+ });
+</script>
+</head>
+
+<body>
+    <nav role='navigation'>
+        <div id="menuToggle">
+
+          <input type="checkbox" />
+          
+          <span></span>
+          <span></span>
+          <span></span>
+          
+          <ul id="menu">
+            <a href="index.html"><li>Map</li></a>
+            <a href="ToSchool.html"><li>To School</li></a>
+            <a href="#"><li>+ Add Route</li></a>
+          </ul>
+        </div>
+    </nav>
+  <div id="viewDiv"></div> 
+  
+ 
+</body>
+</html>
+
