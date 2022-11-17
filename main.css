@@ -183,9 +183,11 @@ a:hover
 
 #searchIcon {
   position: absolute;
+  z-index: 10;
+  height:40px;
+  width:40px;
   bottom: 10px;
-  right: 50px;
-  z-index: 10px;
+  right: 23px;
   margin: 20px;
-  display: block;
+  
 }
