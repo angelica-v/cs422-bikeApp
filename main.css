@@ -189,3 +189,78 @@ a:hover
   margin: 20px;
   display: block;
 }
+
+#bottomBar {
+  background: rgba(255, 255, 255, 0.5);
+  bottom: 0;
+  height: 130px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+#buttonBar {
+  text-align: center;
+  width: 100%;
+}
+
+#endButton {
+  background-color: rgb(192, 0, 0);
+  border: none;
+  color: white;
+  margin-right: 10px;
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  transition-duration: 0.3s;
+  width: 160px;
+}
+
+#endButton:hover {
+  background-color: rgb(142, 0, 0);
+  color: white;
+}
+
+#bikeButton {
+  background-color:rgb(127, 203, 120);
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-top: 10px;
+  text-align: center;
+  transition-duration: 0.3s;
+  width: 160px;
+}
+
+#bikeButton:hover {
+  background-color: rgb(104, 182, 132);
+  color: white;
+}
+
+#etaText {
+  text-align: center;
+  width: 100%;
+}
+
+#etaMinutes {
+  color: rgb(127, 203, 120);
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#etaMiles {
+  color: rgb(101, 100, 100);
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#etaTime {
+  color: rgb(101, 100, 100);
+  font-size: 20px;
+  font-weight: bold;
+}
