@@ -191,7 +191,7 @@ a:hover
 }
 
 #bottomBar {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.75);
   bottom: 0;
   height: 130px;
   left: 0;
@@ -223,7 +223,7 @@ a:hover
 }
 
 #bikeButton {
-  background-color:rgb(127, 203, 120);
+  background-color:#43BA41;
   border: none;
   color: white;
   font-size: 20px;
@@ -245,8 +245,12 @@ a:hover
   width: 100%;
 }
 
+#etaCol {
+  text-align: right;
+}
+
 #etaMinutes {
-  color: rgb(127, 203, 120);
+  color: #43BA41;
   display: inline-block;
   font-size: 20px;
   font-weight: bold;
@@ -263,4 +267,5 @@ a:hover
   color: rgb(101, 100, 100);
   font-size: 20px;
   font-weight: bold;
+  text-align: left;
 }
