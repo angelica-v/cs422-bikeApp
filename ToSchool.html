@@ -203,9 +203,9 @@
    graphicsLayer.add(constructionwarningpointGraphic);
    graphicsLayer.add(alertwarningpointGraphic);
   
-  
-  
-  
+   });
+   $('#backBtnImg').click(function(){
+      console.log("backBtn has been pressed");
    });
 </script>
 </head>
@@ -213,13 +213,10 @@
 <body>
     <nav role='navigation'>
         <div id="menuToggle">
-
           <input type="checkbox" />
-          
           <span></span>
           <span></span>
           <span></span>
-          
           <ul id="menu">
             <a href="index.html"><li>Map</li></a>
             <a href="ToSchool.html"><li>To School</li></a>
@@ -227,9 +224,26 @@
           </ul>
         </div>
     </nav>
-  <div id="viewDiv"></div> 
-  
- 
+  <div id="viewDiv">
+   <div id="bottomBar">
+      <div class="container">
+         <div id="etaText" class="row justify-content-center">
+               <div id="etaMinutes">16 min</div>
+               <div id="etaMiles">(3.6 mi)</div>
+          </div>
+          <div id="buttonBar" class="row justify-content-center">
+            <div id="startButton" class="esri-button--small">Start</div>
+            <div id="bikeButton" class="esri-button--small esri-widget--button">
+               <img id = "bikeImg" src="img/bikeIcon.png">Mode ON</div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <a href="index.html">
+   <div id="backButton"  class="esri-interactive esri-widget--button">
+      <img id = "backBtnImg" src="img/backButton.png"></div>
+  </a>
 </body>
 </html>
 
