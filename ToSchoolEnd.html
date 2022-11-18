@@ -36,10 +36,11 @@
   
     const view = new MapView({
       map: map,
-      
-      center: [-87.6518158391,   41.8794389483], //Longitude, latitude
-      zoom: 15,
+      center: [-87.65023256022752,   41.87092186259075], //Longitude, latitude
+      zoom: 20,
+      rotation: -170,
       container: "viewDiv"
+
    });
   
    const graphicsLayer = new GraphicsLayer();
@@ -143,9 +144,9 @@
    const simpleMarkerSymbol = {
       type: "picture-marker",
         url: 'img/directionArrow.png',
-        width: "30px",
-        height: "30px",
-        angle: -140
+        width: "80px",
+        height: "80px",
+        angle: -360
    };
   
    // End Point
@@ -154,7 +155,7 @@
       symbol: simpleMarkerSymbol
    });
   
-   // creat end point
+   // create end point
    const endpoint = { //Create a point
       type: "point",
       longitude: -87.65023256022752,
@@ -163,8 +164,8 @@
    const endsimpleMarkerSymbol = {
       type: "picture-marker",
       url: 'img/mapMarker.png',
-      width: "30px",
-      height: "30px"
+      width: "80px",
+      height: "80px"
    };
   
    const pointGraphic = new Graphic({
@@ -197,7 +198,6 @@
 
   
    graphicsLayer.add(polylineGraphic);
-   graphicsLayer.add(polylineBikeGraphic);
    graphicsLayer.add(pointGraphic);
    graphicsLayer.add(endpointGraphic);
    graphicsLayer.add(weatherwarningpointGraphic);
