@@ -174,11 +174,14 @@
   
       // Create a line geometry
    const polyline = {
-      type: "polyline",
+    type: "polyline",
       paths: [
           [-87.65294424326311,   41.887746923199664],//Longitude, latitude
           [-87.652216652475,   41.887746923199664],
-          [-87.65175596451553,     41.87428527448988]
+          [-87.65175596451553,   41.873087630110234],
+          [-87.65130065572471, 41.87282931767559],
+          [-87.65123649350986, 41.87114163010549],
+          [-87.65068743495554, 41.871130973446654]
       ]
    };
    const simpleLineSymbol = {
@@ -192,29 +195,6 @@
       symbol: simpleLineSymbol
    });
 
-     // Create a bike route geometry
-     const polylineBike = {
-      type: "polyline",
-      paths: [
-          [-87.65175596451553,  41.87428527448988],
-          [-87.65084134243156, 41.87428527448988],
-          [-87.65069279283905, 41.872661173958],
-          [-87.65010578438341, 41.872661173958],
-          [-87.65004203610468, 41.87116162485368],
-          [-87.65023256022752,  41.87092186259075]
-      ]
-   };
-   const simpleLineBikeSymbol = {
-      type: "simple-line",
-      style: "short-dot",
-      color: [101, 100, 100], // grey
-      width: 2
-   };
-  
-   const polylineBikeGraphic = new Graphic({
-      geometry: polylineBike,
-      symbol: simpleLineBikeSymbol
-   });
   
    graphicsLayer.add(polylineGraphic);
    graphicsLayer.add(polylineBikeGraphic);
