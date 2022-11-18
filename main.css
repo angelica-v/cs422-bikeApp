@@ -194,7 +194,7 @@ a:hover
 }
 
 #appbar {
-  background: rgba(255, 255, 255, 0.9);
+  background: transparent;
   margin: 20px;
   position: absolute;
   top: 30px;
