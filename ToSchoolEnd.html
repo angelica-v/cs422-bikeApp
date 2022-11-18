@@ -1,0 +1,273 @@
+<html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>To School - Bike App</title>
+
+  <!-- Style Sheets-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
+
+  <!--Scripts-->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <script src="https://js.arcgis.com/4.25/"></script>
+  <script>
+
+    require([
+      "esri/config",
+      "esri/Map",
+      "esri/views/MapView",
+  
+      "esri/Graphic",
+      "esri/layers/GraphicsLayer"
+  
+      ], function(esriConfig,Map, MapView, Graphic, GraphicsLayer) {
+  
+      esriConfig.apiKey = "AAPKfdb3c15acab54e618af76ac473818e9f0Z9UJw4IZVjC773pinKQMZZ1SxImHplIPzCTLV43lHhVyC_Wt8IE6wMYF4fbf3hQ";
+  
+    const map = new Map({
+      basemap: "arcgis-topographic" //Basemap layer service
+    });
+  
+    const view = new MapView({
+      map: map,
+      
+      center: [-87.6518158391,   41.8794389483], //Longitude, latitude
+      zoom: 15,
+      container: "viewDiv"
+   });
+  
+   const graphicsLayer = new GraphicsLayer();
+   map.add(graphicsLayer);
+  
+   // create template for popupts
+   const popupTemplate = {
+      title: "{Name}",
+      content: "{Description}"
+   }
+  
+   // weather warning
+   const weatherWarning = {
+      Name: "Weather Alert",
+      Description: "Rain in the past hour \n Road is slippery"
+   }
+  
+   const weatherwarningPoint = { //Create a point
+      type: "point",
+      longitude:-87.65155672151336,
+      latitude: 41.88674407699471
+      
+   };
+  
+   const warningMarker = {
+      type: "picture-marker",
+      url: "img/weather-icon.png",
+      width: "30px",
+      height: "30px",
+   };
+  
+   const weatherwarningpointGraphic = new Graphic({
+      geometry: weatherwarningPoint,
+      symbol: warningMarker,
+  
+      attributes: weatherWarning,
+      popupTemplate: popupTemplate
+   });
+   // constructions warning
+   const constructionWarning = {
+      Name: "Construction Alert",
+      Description: "Construction Zone \n Fixing sidewalk"
+   }
+  
+   const constructionswarningPoint = { //Create a point
+      type: "point",
+      longitude:-87.65155672151336,
+      latitude: 41.87783905514061
+      
+   };
+  
+   const constructionswarningMarker = {
+      type: "picture-marker",
+      url: "img/construction.png",
+      width: "30px",
+      height: "30px",
+   };
+  
+   const constructionwarningpointGraphic = new Graphic({
+      geometry: constructionswarningPoint,
+      symbol: constructionswarningMarker,
+  
+      attributes: constructionWarning,
+      popupTemplate: popupTemplate
+   });
+  
+   // alert warning
+   const alertnWarning = {
+      Name: "Alert",
+      Description: "Heavy Foot Traffic \n Be aware of pedestrians"
+   }
+  
+   const alertwarningPoint = { //Create a point
+      type: "point",
+      longitude: -87.65071758772629,
+      latitude:  41.87287098813538
+      
+   };
+  
+   const alertwarningMarker = {
+      type: "picture-marker",
+      url: "img/exclamation.png",
+      width: "30px",
+      height: "30px",
+   };
+  
+   const alertwarningpointGraphic = new Graphic({
+      geometry: alertwarningPoint,
+      symbol: alertwarningMarker,
+  
+      attributes: alertnWarning,
+      popupTemplate: popupTemplate
+   });
+  
+   // Start Point
+   const point = { //Create a point
+      type: "point",
+      longitude:-87.65294424326311,
+      latitude: 41.887746923199664
+   };
+   const simpleMarkerSymbol = {
+      type: "simple-marker",
+      color: [124, 198, 254],  // Light Blue
+      outline: {
+          color: [8, 40, 80], // Medium/Dark Blue
+          width: 1
+      }
+   };
+  
+   // End Point
+   const endpointGraphic = new Graphic({
+      geometry: point,
+      symbol: simpleMarkerSymbol
+   });
+  
+   // creat end point
+   const endpoint = { //Create a point
+      type: "point",
+      longitude: -87.65023256022752,
+      latitude: 41.87092186259075
+   };
+   const endsimpleMarkerSymbol = {
+      type: "picture-marker",
+      url: 'img/mapMarker.png',
+      width: "30px",
+      height: "30px"
+   };
+  
+   const pointGraphic = new Graphic({
+      geometry: endpoint,
+      symbol: endsimpleMarkerSymbol
+   });
+  
+      // Create a line geometry
+   const polyline = {
+      type: "polyline",
+      paths: [
+          [-87.65294424326311,   41.887746923199664],//Longitude, latitude
+          [-87.652216652475,   41.887746923199664],
+          [-87.65175596451553,     41.87428527448988]
+      ]
+   };
+   const simpleLineSymbol = {
+      type: "simple-line",
+      color: [9, 77, 146], // Blue
+      width: 2
+   };
+  
+   const polylineGraphic = new Graphic({
+      geometry: polyline,
+      symbol: simpleLineSymbol
+   });
+
+     // Create a bike route geometry
+     const polylineBike = {
+      type: "polyline",
+      paths: [
+          [-87.65175596451553,  41.87428527448988],
+          [-87.65084134243156, 41.87428527448988],
+          [-87.65069279283905, 41.872661173958],
+          [-87.65010578438341, 41.872661173958],
+          [-87.65004203610468, 41.87116162485368],
+          [-87.65023256022752,  41.87092186259075]
+      ]
+   };
+   const simpleLineBikeSymbol = {
+      type: "simple-line",
+      style: "short-dot",
+      color: [109, 186, 163], // Green
+      width: 2
+   };
+  
+   const polylineBikeGraphic = new Graphic({
+      geometry: polylineBike,
+      symbol: simpleLineBikeSymbol
+   });
+  
+   graphicsLayer.add(polylineGraphic);
+   graphicsLayer.add(polylineBikeGraphic);
+   graphicsLayer.add(pointGraphic);
+   graphicsLayer.add(endpointGraphic);
+   graphicsLayer.add(weatherwarningpointGraphic);
+   graphicsLayer.add(constructionwarningpointGraphic);
+   graphicsLayer.add(alertwarningpointGraphic);
+  
+  
+  
+  
+   });
+</script>
+</head>
+
+<body>
+    <nav role='navigation'>
+        <div id="menuToggle">
+
+          <input type="checkbox" />
+          
+          <span></span>
+          <span></span>
+          <span></span>
+          
+          <ul id="menu">
+            <a href="index.html"><li>Map</li></a>
+            <a href="ToSchoolBike.html"><li>To School</li></a>
+            <a href="#"><li>+ Add Route</li></a>
+          </ul>
+        </div>
+    </nav>
+  <div id="viewDiv">
+   <div id="bottomBar">
+      <div id="bottomBarContainer" class="container">
+         <div id="etaText" class="row">
+            <div id="etaCol" class="col">
+               <div id="etaMinutes">16 min</div>
+               <div id="etaMiles">(3.6 mi)</div>
+            </div>
+            <div id="etaTime" class="col">ETA: 9:25AM</div>
+          </div>
+          <div id="buttonBar" class="row justify-content-center">
+            <div id="endButton" class="esri-button--small">End</div>
+            <div id="bikeButton" class="esri-button--small">Mode ON</div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div> 
+  
+ 
+</body>
+</html>
