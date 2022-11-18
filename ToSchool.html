@@ -16,6 +16,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
   <script src="https://js.arcgis.com/4.25/"></script>
+  <script src="ToSchoolBike.html"></script>
   <script>
 
     require([
@@ -177,7 +178,7 @@
    const polyline = {
       type: "polyline",
       paths: [
-          [-87.65294424326311,   41.887746923199664],//Longitude, latitude
+         [-87.65294424326311,   41.887746923199664],//Longitude, latitude
           [-87.652216652475,   41.887746923199664],
           [-87.65175596451553,   41.873087630110234],
           [-87.65130065572471, 41.87282931767559],
@@ -195,7 +196,7 @@
       geometry: polyline,
       symbol: simpleLineSymbol
    });
-  
+
    graphicsLayer.add(polylineGraphic);
    graphicsLayer.add(pointGraphic);
    graphicsLayer.add(endpointGraphic);
@@ -235,9 +236,11 @@
             <a href="ToSchoolStartOnWay.html">
                <div id="startButton" class="esri-button--small">Start</div>
             </a>
-            <div id="bikeButton" onclick="bikeMode()" class="esri-button--small esri-widget--button">
-               <img id = "bikeImg" src="img/bikeIcon.png">Mode ON</div>
-            </div>
+            <a href="ToSchoolBike.html">
+               <div id="bikeButtonOff" class="esri-button--small esri-widget--button">
+                  <img id = "bikeImg" src="img/bikeIcon.png">Mode OFF</div>
+               </div>
+            </a>
           </div>
       </div>
     </div>
@@ -247,30 +250,6 @@
       <img id = "backBtnImg" src="img/backButton.png">
    </div>
   </a>
-
-  <script>
-   // Code to allow Bike Mode to be on/off
-   var isBikeModeOn = true;
-   let bikeBtn = document.getElementById("bikeButton");
-
-   function bikeMode() {
-      if (isBikeModeOn) {
-         // Change inner text
-         //bikeBtn.textContent = "Mode OFF";
-         // Change color
-         //bikeBtn.backgroundColor="#6c716c";
-         // Change boolean var
-         isBikeModeOn = false;
-      } else {
-         // Change inner text
-         //bikeBtn.textContent = "Mode ON"
-         // Change color
-         //bikeBtn.backgroundColor="#3ade2b";
-         // Change boolean var
-         isBikeModeOn = true;
-      }
-   }
-  </script>
 </body>
 </html>
 

@@ -309,12 +309,23 @@ a:hover
   color: white;
 }
 
-.bikeModeOff {
+#bikeButtonOff {
+  border: none;
+  color: white;
+  font-size: 27px;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-top: 10px;
+  text-align: center;
+  transition-duration: 0.3s;
+  width: 170px;
+  height: 100px;
   background-color: #6c716c;
 }
 
-.bikeButtonOff:hover {
+#bikeButtonOff:hover {
   background-color: rgb(90, 95, 90);
+  color: white;
 }
 
 #etaText {
