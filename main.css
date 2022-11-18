@@ -216,6 +216,21 @@ a:hover
   display: block;
 }
 
+#arrivedBanner {
+  background-color:rgb(58, 222, 43);
+  bottom: 200px;
+  color: white;
+  font-size: 27px;
+  font-weight: bold;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-top: 10px;
+  text-align: center;
+}
+
 #bottomBar {
   background: rgba(255, 255, 255, 0.9);
   bottom: 0;
