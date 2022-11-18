@@ -114,8 +114,8 @@
   
    const alertwarningPoint = { //Create a point
       type: "point",
-      longitude:-87.65155672151336,
-      latitude:  41.87372205323614
+      longitude: -87.65071758772629,
+      latitude:  41.87287098813538
       
    };
   
@@ -158,8 +158,8 @@
    // creat end point
    const endpoint = { //Create a point
       type: "point",
-      longitude:-87.65068743495554,
-      latitude: 41.871130973446654
+      longitude: -87.65023256022752,
+      latitude: 41.87092186259075
    };
    const endsimpleMarkerSymbol = {
       type: "picture-marker",
@@ -179,15 +179,12 @@
       paths: [
           [-87.65294424326311,   41.887746923199664],//Longitude, latitude
           [-87.652216652475,   41.887746923199664],
-          [-87.65175596451553,   41.873087630110234],
-          [-87.65130065572471, 41.87282931767559],
-          [-87.65123649350986, 41.87114163010549],
-          [-87.65068743495554, 41.871130973446654]
+          [-87.65175596451553,     41.87428527448988]
       ]
    };
    const simpleLineSymbol = {
       type: "simple-line",
-      color: [9, 77, 146], // Orange
+      color: [9, 77, 146], // Blue
       width: 2
    };
   
@@ -195,17 +192,42 @@
       geometry: polyline,
       symbol: simpleLineSymbol
    });
+
+     // Create a bike route geometry
+     const polylineBike = {
+      type: "polyline",
+      paths: [
+          [-87.65175596451553,  41.87428527448988],
+          [-87.65084134243156, 41.87428527448988],
+          [-87.65069279283905, 41.872661173958],
+          [-87.65010578438341, 41.872661173958],
+          [-87.65004203610468, 41.87116162485368],
+          [-87.65023256022752,  41.87092186259075]
+      ]
+   };
+   const simpleLineBikeSymbol = {
+      type: "simple-line",
+      style: "short-dot",
+      color: [109, 186, 163], // Green
+      width: 2
+   };
+  
+   const polylineBikeGraphic = new Graphic({
+      geometry: polylineBike,
+      symbol: simpleLineBikeSymbol
+   });
   
    graphicsLayer.add(polylineGraphic);
+   graphicsLayer.add(polylineBikeGraphic);
    graphicsLayer.add(pointGraphic);
    graphicsLayer.add(endpointGraphic);
    graphicsLayer.add(weatherwarningpointGraphic);
    graphicsLayer.add(constructionwarningpointGraphic);
    graphicsLayer.add(alertwarningpointGraphic);
   
-   });
-   $('#backBtnImg').click(function(){
-      console.log("backBtn has been pressed");
+  
+  
+  
    });
 </script>
 </head>
@@ -213,10 +235,13 @@
 <body>
     <nav role='navigation'>
         <div id="menuToggle">
+
           <input type="checkbox" />
+          
           <span></span>
           <span></span>
           <span></span>
+          
           <ul id="menu">
             <a href="index.html"><li>Map</li></a>
             <a href="ToSchoolBike.html"><li>To School</li></a>
@@ -226,26 +251,23 @@
     </nav>
   <div id="viewDiv">
    <div id="bottomBar">
-      <div class="container">
-         <div id="etaText" class="row justify-content-center">
+      <div id="bottomBarContainer" class="container">
+         <div id="etaText" class="row">
+            <div id="etaCol" class="col">
                <div id="etaMinutes">16 min</div>
                <div id="etaMiles">(3.6 mi)</div>
+            </div>
+            <div id="etaTime" class="col">ETA: 9:25AM</div>
           </div>
           <div id="buttonBar" class="row justify-content-center">
-            <a href="ToSchoolStartOnWay.html">
-               <div id="startButton" class="esri-button--small">Start</div>
-            </a>
-            <div id="bikeButton" class="esri-button--small esri-widget--button">
-               <img id = "bikeImg" src="img/bikeIcon.png">Mode ON</div>
+            <div id="endButton" class="esri-button--small">End</div>
+            <div id="bikeButton" class="esri-button--small">Mode ON</div>
             </div>
           </div>
       </div>
     </div>
-  </div>
-  <a href="index.html">
-   <div id="backButton"  class="esri-interactive esri-widget--button">
-      <img id = "backBtnImg" src="img/backButton.png"></div>
-  </a>
+  </div> 
+  
+ 
 </body>
 </html>
-

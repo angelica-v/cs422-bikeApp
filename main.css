@@ -18,8 +18,8 @@
   height: 44px;
 }
 #backBtnImg, #bikeImg{
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 85%;
+  max-height: 85%;
 }
 
 
@@ -192,7 +192,9 @@ a:hover
     transition: opacity 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
   }
 }
+
 #appbar {
+  background: rgba(255, 255, 255, 0.9);
   margin: 20px;
   position: absolute;
   top: 30px;
@@ -217,28 +219,54 @@ a:hover
 #bottomBar {
   background: rgba(255, 255, 255, 0.9);
   bottom: 0;
-  height: 90px;
+  height: 200px;
   left: 0;
   position: absolute;
   width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-top: 10px;
 }
 
 #buttonBar {
   text-align: center;
+  align-items: center;
   width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 #startButton {
   background-color: rgb(160, 31, 162);
   border: none;
   color: white;
-  margin-right: 10px;
+  margin-left: 10px;
   margin-top: 10px;
-  font-size: 20px;
+  font-size: 60px;
   font-weight: bold;
   text-align: center;
   transition-duration: 0.3s;
-  width: 160px;
+  width: 170px;
+  height: 100px;
+}
+
+#endButton {
+  background-color: rgb(255, 0, 0);
+  border: none;
+  color: white;
+  margin-left: 10px;
+  margin-top: 10px;
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+  transition-duration: 0.3s;
+  width: 170px;
+  height: 100px;
+}
+
+#endButton:hover {
+  background-color: rgb(210, 25, 25);
+  color: white;
 }
 
 #startButton:hover {
@@ -247,20 +275,40 @@ a:hover
 }
 
 #bikeButton {
-  background-color:rgb(127, 203, 120);
+  background-color:rgb(58, 222, 43);
   border: none;
   color: white;
-  font-size: 20px;
+  font-size: 27px;
   font-weight: bold;
   margin-left: 10px;
   margin-top: 10px;
   text-align: center;
   transition-duration: 0.3s;
-  width: 160px;
+  width: 170px;
+  height: 100px;
 }
 
 #bikeButton:hover {
-  background-color: rgb(104, 182, 132);
+  background-color: rgb(41, 167, 30);
+  color: white;
+}
+
+#bikeButtonOff {
+  background-color:rgb(108, 113, 108);
+  border: none;
+  color: white;
+  font-size: 27px;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-top: 10px;
+  text-align: center;
+  transition-duration: 0.3s;
+  width: 170px;
+  height: 100px;
+}
+
+#bikeButtonOff:hover {
+  background-color: rgb(90, 95, 90);
   color: white;
 }
 
@@ -270,21 +318,22 @@ a:hover
 }
 
 #etaMinutes {
-  color: rgb(127, 203, 120);
+  color: rgb(41, 167, 30);
   display: inline-block;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
+  margin-right: 10px;
 }
 
 #etaMiles {
   color: rgb(101, 100, 100);
   display: inline-block;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 }
 
 #etaTime {
   color: rgb(101, 100, 100);
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
 }

@@ -92,6 +92,22 @@
         </div>
         <div>
           <img id="searchIcon" src="img/search_icon.svg.png" >
+
+        <!-- Script for the navigation scene -->
+        <script>
+          function navMove() {
+            // Change the POV
+            navView.MapView.center = [-87.65023256022752, 41.87092186259075];
+            navView.MapView.rotation = -170;
+            // Make lines grey
+            simpleLineSymbol.color = [163, 163, 163]; // Gray
+            // Make another icon for current user position
+            pointGraphic.symbol = simpleMarkerSymbol;
+          }
+        </script>
+
+        <div id="searchIcon" src="img/search_icon.svg.png">
+
         </div>
     </nav>
   <div id="viewDiv">

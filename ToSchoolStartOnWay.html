@@ -32,7 +32,7 @@
         basemap: "arcgis-topographic" //Basemap layer service
       });
     
-      const view = new MapView({
+      let navView = new MapView({
         map: map,
         // ------------------------------------------------------------------
         // Make the starting point the center
@@ -44,11 +44,6 @@
         // ------------------------------------------------------------------
         container: "viewDiv"
      });
-
-     let opts = {
-        animate: true,
-        duraction: 4000 // Duraction of animation will be 5 seconds
-     }
 
     
      const graphicsLayer = new GraphicsLayer();
@@ -150,12 +145,10 @@
         latitude: 41.887746923199664
      };
      const simpleMarkerSymbol = {
-        type: "simple-marker",
-        color: [124, 198, 254],  // Light Blue
-        outline: {
-            color: [8, 40, 80], // Medium/Dark Blue
-            width: 1
-        }
+        type: "picture-marker",
+        url: 'img/directionArrow.png',
+        width: "80px",
+        height: "80px"
      };
     
      // End Point
@@ -173,11 +166,11 @@
      const endsimpleMarkerSymbol = {
         type: "picture-marker",
         url: 'img/mapMarker.png',
-        width: "30px",
-        height: "30px"
+        width: "80px",
+        height: "80px"
      };
     
-     const pointGraphic = new Graphic({
+     let pointGraphic = new Graphic({
         geometry: endpoint,
         symbol: endsimpleMarkerSymbol
      });
@@ -191,10 +184,10 @@
             [-87.65175596451553,     41.87428527448988]
         ]
      };
-     const simpleLineSymbol = {
+     let simpleLineSymbol = {
         type: "simple-line",
         color: [9, 77, 146], // Blue
-        width: 2
+        width: 8
      };
     
      const polylineGraphic = new Graphic({
@@ -218,7 +211,7 @@
         type: "simple-line",
         style: "short-dot",
         color: [109, 186, 163], // Green
-        width: 2
+        width: 8
      };
     
      const polylineBikeGraphic = new Graphic({
@@ -258,7 +251,28 @@
             </ul>
           </div>
       </nav>
-    <div id="viewDiv"></div> 
+    <div id="viewDiv">
+        <div id="bottomBar">
+            <div class="container">
+               <div id="etaText" class="row justify-content-center">
+                     <div id="etaMinutes">16 min </div>
+                     <div id="etaMiles">(3.6 mi)</div>
+                </div>
+                <div id="buttonBar" class="row justify-content-center">
+                    <a href="ToSchool.html">
+                        <div id="endButton" class="esri-button--small">End</div>
+                     </a>
+                  <div id="bikeButton" class="esri-button--small esri-widget--button">
+                     <img id = "bikeImg" src="img/bikeIcon.png">Mode ON</div>
+                  </div>
+                </div>
+            </div>
+    </div> 
+    <a href="ToSchool.html">
+        <div id="backButton"  class="esri-interactive esri-widget--button">
+           <img id = "backBtnImg" src="img/backButton.png"></div>
+    </a>
+
     
    
   </body>
