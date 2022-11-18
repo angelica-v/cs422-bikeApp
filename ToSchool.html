@@ -37,7 +37,7 @@
     const view = new MapView({
       map: map,
       
-      center: [-87.6518158391,   41.8794389483], //Longitude, latitude
+      center: [-87.6518158391,   41.8768000000], //Longitude, latitude
       zoom: 15,
       container: "viewDiv"
    });
@@ -235,7 +235,7 @@
             <a href="ToSchoolStartOnWay.html">
                <div id="startButton" class="esri-button--small">Start</div>
             </a>
-            <div id="bikeButton" class="esri-button--small esri-widget--button">
+            <div id="bikeButton" onclick="bikeMode()" class="esri-button--small esri-widget--button">
                <img id = "bikeImg" src="img/bikeIcon.png">Mode ON</div>
             </div>
           </div>
@@ -244,8 +244,33 @@
   </div>
   <a href="index.html">
    <div id="backButton"  class="esri-interactive esri-widget--button">
-      <img id = "backBtnImg" src="img/backButton.png"></div>
+      <img id = "backBtnImg" src="img/backButton.png">
+   </div>
   </a>
+
+  <script>
+   // Code to allow Bike Mode to be on/off
+   var isBikeModeOn = true;
+   let bikeBtn = document.getElementById("bikeButton");
+
+   function bikeMode() {
+      if (isBikeModeOn) {
+         // Change inner text
+         //bikeBtn.textContent = "Mode OFF";
+         // Change color
+         //bikeBtn.backgroundColor="#6c716c";
+         // Change boolean var
+         isBikeModeOn = false;
+      } else {
+         // Change inner text
+         //bikeBtn.textContent = "Mode ON"
+         // Change color
+         //bikeBtn.backgroundColor="#3ade2b";
+         // Change boolean var
+         isBikeModeOn = true;
+      }
+   }
+  </script>
 </body>
 </html>
 
