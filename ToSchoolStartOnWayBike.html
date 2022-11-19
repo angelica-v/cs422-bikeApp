@@ -15,8 +15,7 @@
   
     <script src="https://js.arcgis.com/4.25/"></script>
     <script src="ToSchool.html"></script>
-    <script>
-  
+   <script>
       require([
         "esri/config",
         "esri/Map",
@@ -222,12 +221,10 @@
     
      graphicsLayer.add(polylineGraphic);
      graphicsLayer.add(polylineBikeGraphic);
-     graphicsLayer.add(pointGraphic);
      graphicsLayer.add(endpointGraphic);
      graphicsLayer.add(weatherwarningpointGraphic);
      graphicsLayer.add(constructionwarningpointGraphic);
      graphicsLayer.add(alertwarningpointGraphic);
-    
     
     
     
@@ -236,13 +233,12 @@
      // After 5 seconds, get the next screen
      function end() {
       console.log("In end()");
-      document.location.href = "ToSchoolBikeEnd.html";
+      document.location.href = "ToSchoolEnd.html";
      }
 
      const endScreen = setTimeout(end, 5000);
   </script>
   </head>
-  
   <body>
       <nav role='navigation'>
           <div id="menuToggle">
@@ -264,6 +260,7 @@
           </div>
       </nav>
     <div id="viewDiv">
+      <div id="weatherBanner">Slippery Road Conditions Ahead!</div>
         <div id="bottomBar">
             <div class="container">
                <div id="etaText" class="row justify-content-center">
@@ -274,9 +271,11 @@
                     <a href="ToSchool.html">
                         <div id="endButton" class="esri-button--small">End</div>
                      </a>
-                  <div id="bikeButton" class="esri-button--small esri-widget--button">
-                     <img id = "bikeImg" src="img/bikeIcon.png">Mode ON</div>
-                  </div>
+                  <a href="ToSchoolStartOnWay.html">
+                     <div id="bikeButton" class="esri-button--small esri-widget--button">
+                        <img id = "bikeImg" src="img/bikeIcon.png">Mode ON</div>
+                     </div>
+                  </a>
                 </div>
             </div>
     </div> 

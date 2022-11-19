@@ -15,7 +15,7 @@
   
     <script src="https://js.arcgis.com/4.25/"></script>
     <script src="ToSchool.html"></script>
-   </script>
+   <script>
       require([
         "esri/config",
         "esri/Map",
@@ -248,17 +248,21 @@
             <input type="checkbox" />
             
             <span></span>
-            <span></span>
+            <span>Routes</span>
             <span></span>
             
             <ul id="menu">
-              <a href="index.html"><li>Map</li></a>
-              <a href="ToSchool.html"><li>To School</li></a>
-              <a href="#"><li>+ Add Route</li></a>
+               <a href="ToSchool.html"><li class="active">To School</li></a>
+               <li>_______________</li>
+
+               <a href="addRoute.html"><li>+ Add Route</li></a>
+               <a href="editRouteMain.html"><li>Edit Routes</li></a>
+               <a href="index.html"><li>Map / Home Screen</li></a>
             </ul>
           </div>
       </nav>
     <div id="viewDiv">
+      <div id="weatherBanner">Slippery Road Conditions Ahead!</div>
         <div id="bottomBar">
             <div class="container">
                <div id="etaText" class="row justify-content-center">
@@ -269,9 +273,11 @@
                     <a href="ToSchool.html">
                         <div id="endButton" class="esri-button--small">End</div>
                      </a>
-                  <div id="bikeButtonOff" class="esri-button--small esri-widget--button">
-                     <img id = "bikeImg" src="img/bikeIcon.png">Mode OFF</div>
-                  </div>
+                  <a href="ToSchoolStartOnWayBike.html">
+                     <div id="bikeButtonOff" class="esri-button--small esri-widget--button">
+                        <img id = "bikeImg" src="img/bikeIcon.png">Mode OFF</div>
+                     </div>
+                  </a>
                 </div>
             </div>
     </div> 

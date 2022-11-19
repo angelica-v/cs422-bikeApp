@@ -3,195 +3,171 @@
   margin: 0;
   height: 100%;
   width: 100%;
-  display: absolute;
-}
-#routeScreen {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-#backButton {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  width: 44px;
-  height: 44px;
-  background-color: transparent;
-}
-#backBtnImg, #bikeImg{
-  max-width: 85%;
-  max-height: 85%;
-}
-
-
-/* Removing source Map from toSchool, to Replaced with route Screen */
-.esri-attribution__sources,div.esri-component.esri-zoom.esri-widget, .esri-ui-manual-container>.esri-component, .esri-attribution__powered-by{
-  visibility: hidden;
 }
 body
 {
-  margin: 0;
-  padding: 0;
-  
-  /* make it look decent enough */
-  background: #232323;
-  color: #082850;
-  font-family: "Avenir Next", "Avenir", sans-serif;
-  
-  overflow-x: hidden; /* needed because hiding the menu on the right side is not perfect,  */
+margin: 0;
+padding: 0;
+
+/* make it look decent enough */
+background: #232323;
+color: #082850;
+font-family: "Avenir Next", "Avenir", sans-serif;
+
+overflow-x: hidden; /* needed because hiding the menu on the right side is not perfect,  */
 }
 
 a
 {
-  text-decoration: none;
-  color: #232323;
-  
-  transition: color 0.3s ease;
+text-decoration: none;
+color: #232323;
+
+transition: color 0.3s ease;
 }
 
 a:hover
 {
-  color: #7CC6FE;
+color: #7CC6FE;
 }
 
 #menuToggle
 {
-  display: block;
-  position: absolute;
-  top: 50px;
-  right: 70px;
-  
-  z-index: 1;
-  
-  -webkit-user-select: none;
-  user-select: none;
+display: block;
+position: absolute;
+top: 50px;
+right: 70px;
+
+z-index: 1;
+
+-webkit-user-select: none;
+user-select: none;
 }
 
 #menuToggle input
 {
-  display: block;
-  width: 80px;
-  height: 32px;
-  position: absolute;
-  top: -7px;
-  left: -5px;
-  background: transparent;
-  cursor: pointer;
-  
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
-  
-  -webkit-touch-callout: none;
+display: block;
+width: 80px;
+height: 32px;
+position: absolute;
+top: -7px;
+left: -5px;
+background: transparent;
+cursor: pointer;
+
+opacity: 0; /* hide this */
+z-index: 2; /* and place it over the hamburger */
+
+-webkit-touch-callout: none;
 }
 
 /*
- * Just a quick hamburger
- */
+* Just a quick hamburger
+*/
 #menuToggle span
 {
-  display: block;
-  width: 33px;
-  height: 4px;
-  margin-bottom: 5px;
-  position: relative;
-  background: transparent;
-  border-radius: 3px;
-  font-size: 20px;
-  font-weight: bold;
-  z-index: 1;
-  
-  transform-origin: 4px 0px;
-  
-  transition: transform 0.1s,
-              background 0.1s,
-              opacity 0.1s;
+display: block;
+width: 33px;
+height: 4px;
+margin-bottom: 5px;
+position: relative;
+background: transparent;
+border-radius: 3px;
+font-size: 20px;
+font-weight: bold;
+z-index: 1;
+
+transform-origin: 4px 0px;
+
+transition: transform 0.1s,
+            background 0.1s,
+            opacity 0.1s;
 }
 
 #menuToggle span:first-child
 {
-  transform-origin: 0% 0%;
+transform-origin: 0% 0%;
 }
 
 #menuToggle span:nth-last-child(2)
 {
-  transform-origin: 0% 100%;
+transform-origin: 0% 100%;
 }
 
 /* 
- * Transform all the slices of hamburger
- * into a crossmark.
- */
+* Transform all the slices of hamburger
+* into a crossmark.
+*/
 #menuToggle input:checked ~ span
 {
-  opacity: 1;
-  transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
+opacity: 1;
+transform: rotate(45deg) translate(-2px, -1px);
+background: #232323;
 }
 
 /*
- * But let's hide the middle one. It has the "routes" title
- */
+* But let's hide the middle one. It has the "routes" title
+*/
 #menuToggle input:checked ~ span:nth-last-child(3)
 {
-  opacity: 0;
-  transform: rotate(0deg) scale(0.2, 0.2);
+opacity: 0;
+transform: rotate(0deg) scale(0.2, 0.2);
 }
 
 /*
- * Ohyeah and the last one should go the other direction
- */
+* Ohyeah and the last one should go the other direction
+*/
 #menuToggle input:checked ~ span:nth-last-child(2)
 {
-  opacity: 1;
-  transform: rotate(-45deg) translate(0, -1px);
+opacity: 1;
+transform: rotate(-45deg) translate(0, -1px);
 }
 
 /*
- * Make this absolute positioned
- * at the top left of the screen
- */
+* Make this absolute positioned
+* at the top left of the screen
+*/
 #menu
 {
-  position: absolute;
-  width: 300px;
-  margin: -100px 0 0 0;
-  padding: 50px;
-  padding-top: 125px;
-  right: -100px;
-  
-  background: #ededed;
-  list-style-type: none;
-  -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
-  
-  transform-origin: 0% 0%;
-  transform: translate(100%, 0);
-  
-  transition: transform 0.5s;
+position: absolute;
+width: 300px;
+margin: -100px 0 0 0;
+padding: 50px;
+padding-top: 125px;
+right: -100px;
+
+background: #ededed;
+list-style-type: none;
+-webkit-font-smoothing: antialiased;
+/* to stop flickering of text in safari */
+
+transform-origin: 0% 0%;
+transform: translate(100%, 0);
+
+transition: transform 0.5s;
 }
 
 #menu li
 {
-  padding: 10px 0;
-  font-size: 22px;
+padding: 10px 0;
+font-size: 22px;
 }
 
 /*
- * And let's fade it in from the left
- */
+* And let's fade it in from the left
+*/
 #menuToggle input:checked ~ ul
 {
-  transform: none;
-  opacity: 1;
+transform: none;
+opacity: 1;
 }
 
 @media screen and (max-width: 768px) {
-  #menu {
-    transform: none;
-    opacity: 0;
+#menu {
+  transform: none;
+  opacity: 0;
 
-    transition: opacity 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-  }
+  transition: opacity 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
 }
 
 #appbar {
@@ -355,4 +331,159 @@ a:hover
   color: rgb(101, 100, 100);
   font-size: 30px;
   font-weight: bold;
+}
+
+#routeScreen {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+#backButton {
+  position: absolute;
+  top: 100px;
+  left: 10px;
+  width: 44px;
+  height: 44px;
+  background-color: transparent;
+}
+#backBtnImg, #bikeImg{
+  max-width: 85%;
+  max-height: 85%;
+}
+
+#weatherBanner {
+  background-color:rgb(9, 77, 146);
+  bottom: 200px;
+  color: white;
+  font-size: 27px;
+  font-weight: bold;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.active {
+  font-weight: bold;
+  color: #094D92
+}
+
+#addRouteButton {
+  border: none;
+  color: white;
+  font-size: 27px;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-top: 10px;
+  text-align: center;
+  transition-duration: 0.3s;
+  width: 180px;
+  height: 40px;
+  background-color: rgb(160, 31, 162);
+}
+
+#addRouteButton:hover {
+  background-color: rgb(120, 48, 208);
+  color: white;
+}
+
+#useCurrentLocation {
+
+  border: none;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  margin-left: 40px;
+  margin-top: 10px;
+  text-align: center;
+  transition-duration: 0.3s;
+  width: 170px;
+  height: 40px;
+  background-color: rgb(114, 190, 193);
+  display: block;
+
+}
+
+#useCurrentLocation:hover {
+  background-color: rgb(109, 186, 163);
+  color: white;
+}
+
+label{
+  width: 250px;
+  text-align: center;
+}
+input {
+  text-align: center;
+}
+
+#flipArrows{
+  max-width: 10%;
+  max-height: 10%;
+}
+
+#editbuttonBar {
+  background: rgba(255, 255, 255, 0.9);
+  bottom: 0;
+  height: 300px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 10px;
+}
+
+#editbuttonBar {
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#deleteRoute {
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-top: 10px;
+  text-align: center;
+  transition-duration: 0.3s;
+  width: 180px;
+  height: 40px;
+  background-color: rgb(204, 0, 0);
+}
+
+#deleteRoute:hover {
+  background-color: rgb(153, 0, 0);
+  color: white;
+}
+
+#editbuttonBarMenu {
+  background: rgba(255, 255, 255, 0.9);
+  bottom: 0;
+  height: 200px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 10px;
+}
+
+#editbuttonBarMenu {
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
 }

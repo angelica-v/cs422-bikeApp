@@ -1,0 +1,352 @@
+#viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+  }
+  body
+{
+  margin: 0;
+  padding: 0;
+  
+  /* make it look decent enough */
+  background: #232323;
+  color: #082850;
+  font-family: "Avenir Next", "Avenir", sans-serif;
+  
+  overflow-x: hidden; /* needed because hiding the menu on the right side is not perfect,  */
+}
+
+a
+{
+  text-decoration: none;
+  color: #232323;
+  
+  transition: color 0.3s ease;
+}
+
+a:hover
+{
+  color: #7CC6FE;
+}
+
+#menuToggle
+{
+  display: block;
+  position: absolute;
+  top: 50px;
+  right: 70px;
+  
+  z-index: 1;
+  
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+#menuToggle input
+{
+  display: block;
+  width: 80px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+  background: transparent;
+  cursor: pointer;
+  
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+  
+  -webkit-touch-callout: none;
+}
+
+/*
+ * Just a quick hamburger
+ */
+#menuToggle span
+{
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: transparent;
+  border-radius: 3px;
+  font-size: 20px;
+  font-weight: bold;
+  z-index: 1;
+  
+  transform-origin: 4px 0px;
+  
+  transition: transform 0.1s,
+              background 0.1s,
+              opacity 0.1s;
+}
+
+#menuToggle span:first-child
+{
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2)
+{
+  transform-origin: 0% 100%;
+}
+
+/* 
+ * Transform all the slices of hamburger
+ * into a crossmark.
+ */
+#menuToggle input:checked ~ span
+{
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+ * But let's hide the middle one. It has the "routes" title
+ */
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ * Ohyeah and the last one should go the other direction
+ */
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+  opacity: 1;
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+ * Make this absolute positioned
+ * at the top left of the screen
+ */
+#menu
+{
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 0;
+  padding: 50px;
+  padding-top: 125px;
+  right: -100px;
+  
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+  
+  transform-origin: 0% 0%;
+  transform: translate(100%, 0);
+  
+  transition: transform 0.5s;
+}
+
+#menu li
+{
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+ * And let's fade it in from the left
+ */
+#menuToggle input:checked ~ ul
+{
+  transform: none;
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  #menu {
+    transform: none;
+    opacity: 0;
+
+    transition: opacity 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+  }
+}
+
+#appbar {
+    background: transparent;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 0px;
+    position: absolute;
+    top: 25px;
+    left: 30px;
+    font-size: 35px;
+    font-weight: bold;
+    display: block;
+    z-index: 10;
+  }
+  
+  #searchIcon {
+    position: absolute;
+    z-index: 10;
+    height:40px;
+    width:40px;
+    bottom: 10px;
+    right: 23px;
+    margin: 20px;
+    display: block;
+  }
+
+  #arrivedBanner {
+    background-color:rgb(58, 222, 43);
+    bottom: 200px;
+    color: white;
+    font-size: 27px;
+    font-weight: bold;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 10px;
+    text-align: center;
+  }
+  
+  #bottomBar {
+    background: rgba(255, 255, 255, 0.9);
+    bottom: 0;
+    height: 200px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-top: 10px;
+  }
+  
+  #buttonBar {
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  
+  #startButton {
+    background-color: rgb(160, 31, 162);
+    border: none;
+    color: white;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    transition-duration: 0.3s;
+    width: 170px;
+    height: 100px;
+  }
+  
+  #endButton {
+    background-color: rgb(255, 0, 0);
+    border: none;
+    color: white;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 60px;
+    font-weight: bold;
+    text-align: center;
+    transition-duration: 0.3s;
+    width: 170px;
+    height: 100px;
+  }
+  
+  #endButton:hover {
+    background-color: rgb(210, 25, 25);
+    color: white;
+  }
+  
+  #startButton:hover {
+    background-color: rgb(120, 48, 208);
+    color: white;
+  }
+  
+  #bikeButton {
+    border: none;
+    color: white;
+    font-size: 27px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 10px;
+    text-align: center;
+    transition-duration: 0.3s;
+    width: 170px;
+    height: 100px;
+    background-color: #3ade2b;
+  }
+  
+  #bikeButton:hover {
+    background-color: rgb(41, 167, 30);
+    color: white;
+  }
+  
+  #bikeButtonOff {
+    border: none;
+    color: white;
+    font-size: 27px;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 10px;
+    text-align: center;
+    transition-duration: 0.3s;
+    width: 170px;
+    height: 100px;
+    background-color: #6c716c;
+  }
+  
+  #bikeButtonOff:hover {
+    background-color: rgb(90, 95, 90);
+    color: white;
+  }
+  
+  #etaText {
+    text-align: center;
+    width: 100%;
+  }
+  
+  #etaMinutes {
+    color: rgb(41, 167, 30);
+    display: inline-block;
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  #etaMiles {
+    color: rgb(101, 100, 100);
+    display: inline-block;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  #etaTime {
+    color: rgb(101, 100, 100);
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  #routeScreen {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  #backButton {
+    position: absolute;
+    top: 100px;
+    left: 10px;
+    width: 44px;
+    height: 44px;
+    background-color: transparent;
+  }
+  #backBtnImg, #bikeImg{
+    max-width: 85%;
+    max-height: 85%;
+  }

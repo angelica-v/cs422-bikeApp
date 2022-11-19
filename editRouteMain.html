@@ -1,8 +1,9 @@
 <html>
+<html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Home - Bike App</title>
+  <title>Add Route - Bike App</title>
 
   <!-- Style Sheets-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -15,10 +16,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
   <script src="https://js.arcgis.com/4.25/"></script>
-  <script src="ToSchoolStartOnWay.html"></script>
   <script>
 
-  require([
+require([
     "esri/config",
     "esri/Map",
     "esri/views/MapView",
@@ -66,53 +66,58 @@
  graphicsLayer.add(pointGraphic);
 
  });
+
+   $('#backBtnImg').click(function(){
+      console.log("backBtn has been pressed");
+   });
 </script>
 </head>
 
 <body>
     <nav role='navigation'>
-      <AppBar id="appbar">
-          Bike App
-      </AppBar>
-        <div id="menuToggle">
-          <input type="checkbox" />
-    
-          <span></span>
-          <span>Routes</span>
-          <span></span>
-          
-          <ul id="menu">
-            <a href="ToSchoolBike.html"><li>To School</li></a>
-            <li>_______________</li>
-            <a href="addRoute.html"><li>+ Add Route</li></a>
-            <a href="editRouteMain.html"><li>Edit Routes</li></a>
-            <a href="index.html"><li class="active">Map / Home Screen</li></a>
-          </ul>
+
+          <div id="menuToggle">
+            <input type="checkbox" />
+      
+            <span></span>
+            <span>Routes</span>
+            <span></span>
+            
+            <ul id="menu">
+               <a href="ToSchoolBike.html"><li>To School</li></a>
+               <li>_______________</li>
+
+               <a href="addRoute.html"><li>+ Add Route</li></a>
+               <a href="editRouteMain.html"><li  class="active">Edit Routes</li></a>
+               <a href="index.html"><li>Map / Home Screen</li></a>
+            </ul>
+          </div>
+
+      </nav>
+
+  <div id="viewDiv">
+    <div id="bottomBar">
+        <div class="container">
+            
+            <div id="editbuttonBarMenu" class="row justify-content-center">
+                <div id="etaText" class="row justify-content-center">
+                    <h1>Current Routes</h1> 
+               </div>
+
+                 <a href="editToSchool.html"><li>To School</li></a>
+         
+
+            </div>
         </div>
-        <div>
-          <img id="searchIcon" src="img/search_icon.svg.png" >
+      </div>
+  </div> 
 
-        <!-- Script for the navigation scene -->
-        <script>
-          function navMove() {
-            // Change the POV
-            navView.MapView.center = [-87.65023256022752, 41.87092186259075];
-            navView.MapView.rotation = -170;
-            // Make lines grey
-            simpleLineSymbol.color = [163, 163, 163]; // Gray
-            // Make another icon for current user position
-            pointGraphic.symbol = simpleMarkerSymbol;
-          }
-        </script>
+  <a href="index.html">
+    <div id="backButton"  class="esri-interactive esri-widget--button">
+       <img id = "backBtnImg" src="img/backButton.png">
+    </div>
+   </a>
 
-        <div id="searchIcon" src="img/search_icon.svg.png">
 
-        </div>
-    </nav>
-  <div id="viewDiv"></div> 
-
-  
- 
 </body>
 </html>
-
